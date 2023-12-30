@@ -5,12 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMD_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Name="cmdButton" Content="CMD" HorizontalAlignment="Left" Margin="517,149,0,0" VerticalAlignment="Top" Click="cmdButton_Click"/>
-        <Button Name="browseButton" Content="Browse" HorizontalAlignment="Left" Margin="517,112,0,0" VerticalAlignment="Top" Click="browseButton_Click"/>
-        <TextBox Name="inputBox" HorizontalAlignment="Left" Margin="251,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="outputBox" HorizontalAlignment="Left" Margin="251,181,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="800" Width="1400"
+        Background="#EDF2F4">
+    <Window.Resources>
+        <DropShadowEffect x:Key="dropShadow" BlurRadius="8" Direction="315" />
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="Button1Style" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Width" Value="155"/>
+            <Setter Property="Height" Value="65"/>
+            <Setter Property="Background" Value="#284B63"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="Button2Style" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Background" Value="#3C6E71"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Effect" Value="{StaticResource dropShadow}"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="ExtraBold" Foreground="#353535">EasyCommand</TextBlock>
+        <Button Name="echoButton" Grid.Row="1" Grid.Column="1" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click">
+            <TextBlock TextAlignment="Center">Write to<LineBreak/>Console/File</TextBlock>
+        </Button>
+        <Button Name="moveButton" Content="Move" Grid.Row="1" Grid.Column="2" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click"/>
+        <Button Name="typeButton" Grid.Row="1" Grid.Column="3" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click">
+            <TextBlock TextAlignment="Center">Create/Read<LineBreak/>File</TextBlock>
+        </Button>
+        <Button Name="copyButton" Content="Copy File" Grid.Row="1" Grid.Column="4" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click"/>
+        <Button Name="delButton" Content="Delete File" Grid.Row="1" Grid.Column="5" Style="{StaticResource Button2Style}" Padding="2" Background="#8d0801" Click="Button_Click"/>
+        <Button Name="mdButton" Grid.Row="2" Grid.Column="1" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click">
+            <TextBlock TextAlignment="Center">Create<LineBreak/>Directory</TextBlock>
+        </Button>
+        <Button Name="cdButton" Grid.Row="2" Grid.Column="2" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click">
+            <TextBlock TextAlignment="Center">Change<LineBreak/>Directory</TextBlock>
+        </Button>
+        <Button Name="dirButton" Grid.Row="2" Grid.Column="3" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click" >
+            <TextBlock TextAlignment="Center">Display Files<LineBreak/>in Directory</TextBlock>
+        </Button>
+        <Button Name="treeButton" Grid.Row="2" Grid.Column="4" Style="{StaticResource Button2Style}" Padding="2" Click="Button_Click" >
+            <TextBlock TextAlignment="Center">Display File<LineBreak/>Structure</TextBlock>
+        </Button>
+        <Button Name="rdButton" Grid.Row="2" Grid.Column="5" Style="{StaticResource Button2Style}" Padding="2" Background="#8d0801" Click="Button_Click">
+            <TextBlock TextAlignment="Center">Delete<LineBreak/>Directory</TextBlock>
+        </Button>
+
+
+        <Button Name="cmdButton" Content="Enter" Click="cmdButton_Click" Grid.Row="3" Grid.Column="6" Style="{StaticResource Button1Style}" Background="#386641"/>
+        <Button Name="browseButton" Content="Browse" Grid.Row="4" Grid.Column="6" Style="{StaticResource Button1Style}" Click="browseButton_Click"/>
+        <Button Name="clearButton" Content="Clear" Grid.Row="5" Grid.Column="6" Style="{StaticResource Button1Style}" Click="clearButton_Click"/>
+        <Button Name="languageButton" Content="Language" Grid.Row="7" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28"/>
+        <Button Name="helpButton" Content="Help" Grid.Row="8" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28"/>
+        <TextBox Name="inputBox" TextWrapping="Wrap" Text="Input" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2"/>
+        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="#191818" CornerRadius="10" Padding="5" Margin="5">
+            <ScrollViewer>
+                <TextBlock Name="outputBox"  TextWrapping="Wrap"  Text=">"  FontSize="25" Background="#191818" Foreground="White" Padding="5" Margin="8" />
+            </ScrollViewer>
+        </Border>
 
     </Grid>
 </Window>

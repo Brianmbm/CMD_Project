@@ -68,5 +68,50 @@ namespace CMD_Project
             OpenFileDialog oOpenFileDialog = new OpenFileDialog();
             oOpenFileDialog.ShowDialog();
         }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            outputBox.Text = ">";
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+
+            switch (button.Name)
+            {
+                case "echoButton":
+                    inputBox.Text = "echo";
+                    break;
+                case "moveButton":
+                    inputBox.Text = "move";
+                    break;
+                case "typeButton":
+                    inputBox.Text = "type";
+                    break;
+                case "copyButton":
+                    inputBox.Text = "copy";
+                    break;
+                case "delButton":
+                    inputBox.Text = "del";
+                    break;
+                case "mdButton":
+                    inputBox.Text = "md";
+                    break;
+                case "cdButton":
+                    inputBox.Text = "cd";
+                    break;
+                case "dirButton":
+                    inputBox.Text = "dir";
+                    break;
+                case "treeButton":
+                    inputBox.Text = "tree";
+                    break;
+                case "rdButton":
+                    inputBox.Text = "rd";
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

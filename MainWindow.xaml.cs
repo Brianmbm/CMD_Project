@@ -15,6 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+//TODO: Buttons become very spaced out in larger windows, put them all in own size defined grid?
+//TODO: Order help guide alphabetically
+//TODO: Animate buttons so text changes smoothly?
+//TODO: Error handling
+
 namespace CMD_Project
 {
     /// <summary>
@@ -39,7 +45,7 @@ namespace CMD_Project
             oProcess.StartInfo.UseShellExecute = false;
             string command = inputBox.Text;
             string line = "";
-            //Debug.WriteLine(command);
+
             oProcess.Start();
             oProcess.StandardInput.WriteLine($"{command}");
             oProcess.StandardInput.Flush();
@@ -112,6 +118,18 @@ namespace CMD_Project
                 default:
                     break;
             }
+        }
+
+        private void backbutton_Click(object sender, RoutedEventArgs e)
+        {
+            helpGrid.Visibility = Visibility.Collapsed;
+            mainGrid.Visibility = Visibility.Visible;  
+        }
+
+        private void helpButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainGrid.Visibility = Visibility.Collapsed;
+            helpGrid.Visibility = Visibility.Visible;
         }
     }
 }

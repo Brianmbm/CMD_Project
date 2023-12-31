@@ -60,7 +60,7 @@
                 </Style>
             </Style.Resources>
         </Style>
-        
+
         <Style x:Key="Button2Style" TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -86,7 +86,7 @@
                 </Setter.Value>
             </Setter>
             <Style.Resources>
-                    <Style TargetType="Border">
+                <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="25"/>
                 </Style>
             </Style.Resources>
@@ -152,167 +152,94 @@
             </Style.Resources>
         </Style>
     </Window.Resources>
+
     <Grid>
+        <Grid Name="languageGrid" Background="#000000" Opacity="0.7" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="5" Width="500" Height="300" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="10" BorderBrush="#D9D9D9" CornerRadius="5">
+                <Canvas Background="#284B63">
+                    <StackPanel>
+                        <TextBlock Name="langTextBlock" Text="Select a language:" Foreground="White" FontSize="36" Margin="100,15,10,0"/>
+                        <Button Name="seButton" Style="{StaticResource Button2Style}" Margin="100,25,10,0" Content="Swedish" FontSize="36" Width="200" Height="70" Click="seButton_Click"/>
+                        <Button Name="enButton" Style="{StaticResource Button2Style}" Margin="100,25,10,0" Content="English" FontSize="36" Width="200" Height="70" Click="enButton_Click"/>
+                    </StackPanel>
+                </Canvas>
+            </Border>
+
+            
+
+        </Grid>
         <Grid Name="mainGrid" Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="UltraBlack" Foreground="#353535" FontStyle="Italic">EasyCommand</TextBlock>
-            <Button Name="echoButton" Grid.Row="1" Grid.Column="1" Padding="2" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Write to File" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="echo" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Name="moveButton"  Grid.Row="1" Grid.Column="2" Padding="2" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Move" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="move" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Name="typeButton" Grid.Row="1" Grid.Column="3" Padding="2" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Create/Read File" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="type" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-        <Button Name="copyButton" Grid.Row="1" Grid.Column="4" Padding="2" Click="Button_Click">                
-            <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Copy File" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="copy" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-        </Button>
-        <Button Name="delButton" Grid.Row="1" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button3Style}">
-                        <Setter Property="Content" Value="Delete File" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="del" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-        </Button>
-
-        <Button Name="mdButton" Grid.Row="2" Grid.Column="1" Padding="2" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Create Directory" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="md" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-        </Button>
-        <Button Name="cdButton" Grid.Row="2" Grid.Column="2" Padding="2" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="Change Directory" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="cd" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-        <Button Name="dirButton" Grid.Row="2" Grid.Column="3" Padding="2" Click="Button_Click" >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="List Files" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="dir" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-        </Button>
-        <Button Name="treeButton" Grid.Row="2" Grid.Column="4" Padding="2" Click="Button_Click" >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button2Style}">
-                        <Setter Property="Content" Value="List Structure" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="tree" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>        
-        </Button>
-        <Button Name="rdButton" Grid.Row="2" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource Button3Style}">
-                        <Setter Property="Content" Value="Delete Directory" />
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Content" Value="rd" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="UltraBlack" Foreground="#353535" FontStyle="Italic">EasyCommand</TextBlock>
+            <Button Name="echoButton" Grid.Row="1" Grid.Column="1" Padding="2" Click="Button_Click" Content="Write to File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="moveButton"  Grid.Row="1" Grid.Column="2" Padding="2" Click="Button_Click" Content="Move File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="typeButton" Grid.Row="1" Grid.Column="3" Padding="2" Click="Button_Click" Content="Create/Read File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="copyButton" Grid.Row="1" Grid.Column="4" Padding="2" Click="Button_Click" Content="Copy File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="delButton" Grid.Row="1" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete File" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="mdButton" Grid.Row="2" Grid.Column="1" Padding="2" Click="Button_Click" Content="Create Directory" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="cdButton" Grid.Row="2" Grid.Column="2" Padding="2" Click="Button_Click" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Content="Change Directory"/>
+            <Button Name="dirButton" Grid.Row="2" Grid.Column="3" Padding="2" Click="Button_Click" Content="List Files" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="treeButton" Grid.Row="2" Grid.Column="4" Padding="2" Click="Button_Click" Content="List Structure" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Name="rdButton" Grid.Row="2" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete Directory" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
 
 
-        <Button Name="cmdButton" Content="Enter" Click="cmdButton_Click" Grid.Row="3" Grid.Column="6" Style="{StaticResource Button4Style}" Background="#386641"/>
-        <Button Name="browseButton" Content="Browse" Grid.Row="4" Grid.Column="6" Style="{StaticResource Button1Style}" Click="browseButton_Click"/>
-        <Button Name="clearButton" Content="Clear" Grid.Row="5" Grid.Column="6" Style="{StaticResource Button1Style}" Click="clearButton_Click"/>
-        <Button Name="languageButton" Content="Language" Grid.Row="7" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28"/>
-        <Button Name="helpButton" Content="Help" Grid.Row="8" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28" Click="helpButton_Click"/>
-        <TextBox Name="inputBox" TextWrapping="Wrap" Text="Input" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2"/>
-        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="#191818" CornerRadius="10" Padding="5" Margin="5">
-            <ScrollViewer>
-                <TextBlock Name="outputBox"  TextWrapping="Wrap"  Text=">"  FontSize="25" Background="#191818" Foreground="White" Padding="5" Margin="8" />
-            </ScrollViewer>
-        </Border>
-    </Grid>
-    <Grid Name="helpGrid" Margin="20" Visibility="Collapsed">
+
+            <Button Name="cmdButton" Content="Enter" Click="cmdButton_Click" Grid.Row="3" Grid.Column="6" Style="{StaticResource Button4Style}" Background="#386641"/>
+            <Button Name="browseButton" Content="Browse" Grid.Row="4" Grid.Column="6" Style="{StaticResource Button1Style}" Click="browseButton_Click"/>
+            <Button Name="clearButton" Content="Clear" Grid.Row="5" Grid.Column="6" Style="{StaticResource Button1Style}" Click="clearButton_Click"/>
+            <Button Name="languageButton" Content="Language" Grid.Row="7" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28" Click="languageButton_Click"/>
+            <Button Name="helpButton" Content="Help" Grid.Row="8" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28" Click="helpButton_Click"/>
+            <TextBox Name="inputBox" TextWrapping="Wrap" Text="Input" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2"/>
+            <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="#191818" CornerRadius="10" Padding="5" Margin="5">
+                <ScrollViewer>
+                    <TextBlock Name="outputBox"  TextWrapping="Wrap"  Text=">"  FontSize="25" Background="#191818" Foreground="White" Padding="5" Margin="8" />
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        <Grid Name="helpGrid" Margin="20" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -336,34 +263,34 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="UltraBlack" Foreground="#353535" FontStyle="Italic">EasyCommand</TextBlock>
             <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="move: move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="moveGuide" TextWrapping="Wrap"  Text="move: move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock  TextWrapping="Wrap"  Text="rd: remove directory | ex. “rd directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="rdGuide" TextWrapping="Wrap"  Text="rd: remove directory | ex. “rd directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="del: delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="delGuide" TextWrapping="Wrap"  Text="del: delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="echo: write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="echoGuide" TextWrapping="Wrap"  Text="echo: write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock  TextWrapping="Wrap"  Text="dir: display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="dirGuide" TextWrapping="Wrap"  Text="dir: display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="type: create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="typeGuide" TextWrapping="Wrap"  Text="type: create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock  Text="cd: change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory" TextWrapping="Wrap"  Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="cdGuide" Text="cd: change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory" TextWrapping="Wrap"  Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock  TextWrapping="Wrap"  Text="copy: copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="copyGuide" TextWrapping="Wrap"  Text="copy: copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="md: make directory | ex. “md directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="mdGuide" TextWrapping="Wrap"  Text="md: make directory | ex. “md directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Border Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock  TextWrapping="Wrap"  Text="tree: display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
+                <TextBlock Name="treeGuide" TextWrapping="Wrap"  Text="tree: display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
             </Border>
             <Button Name="backbutton" Content="Back" Grid.Row="8" Grid.Column="7" Style="{StaticResource Button1Style}" Click="backbutton_Click"/>
 

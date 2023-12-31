@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,13 @@ using System.Windows.Shapes;
 //TODO: Order help guide alphabetically
 //TODO: Animate buttons so text changes smoothly?
 //TODO: Error handling
+//TODO: Make help screen text more appealing?
 
 namespace CMD_Project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        string language= "en";
         int lineNumber = 0;
         public MainWindow()
         {
@@ -44,31 +44,14 @@ namespace CMD_Project
             oProcess.StartInfo.CreateNoWindow = true;
             oProcess.StartInfo.UseShellExecute = false;
             string command = inputBox.Text;
-            string line = "";
-
             oProcess.Start();
             oProcess.StandardInput.WriteLine($"{command}");
             oProcess.StandardInput.Flush();
             oProcess.StandardInput.Close();
             oProcess.WaitForExit();
-            //lineNumber = 0;
-            //output.Text = ""; //empty string
-            /*while ((line = oProcess.StandardError.ReadLine()) != null)
-            {
-            output.Text = $"E{lineNumber}: {line}\n";
-            lineNumber++;
-            }
-            if (lineNumber == 0) //there is no Error
-            {
-            lineNumber = 0;
-            while ((line = oProcess.StandardOutput.ReadLine()) != null)
-            {
-            output.Text += $"{lineNumber}: {line}\n";
-           lineNumber++;
-            }
-            }*/
             outputBox.Text += oProcess.StandardOutput.ReadToEnd() + "\n----------------\n\n";
         }
+
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog oOpenFileDialog = new OpenFileDialog();
@@ -131,5 +114,205 @@ namespace CMD_Project
             mainGrid.Visibility = Visibility.Collapsed;
             helpGrid.Visibility = Visibility.Visible;
         }
+
+        private void seButton_Click(object sender, RoutedEventArgs e)
+        {
+            languageGrid.Visibility = Visibility.Collapsed;
+            mainGrid.Visibility = Visibility.Visible;
+            language = "se";
+            echoButton.Content = "Skriv till Fil";
+            moveButton.Content = "Flytta Fil";
+            typeButton.Content = "Skapa/Läs Fil";
+            copyButton.Content = "Kopiera Fil";
+            delButton.Content = "Ta Bort Fil";
+            mdButton.Content = "Skapa Mapp";
+            cdButton.Content = "Byt Mapp";
+            dirButton.Content = "Visa Filer";
+            treeButton.Content = "Visa Filstruktur";
+            rdButton.Content = "Ta Bort Mapp";
+            cmdButton.Content = "Kör";
+            browseButton.Content = "Bläddra";
+            clearButton.Content = "Rensa";
+            languageButton.Content = "Språk";
+            helpButton.Content = "Hjälp";
+            langTextBlock.Text = "Välj språk:";
+            seButton.Content = "Svenska";
+            enButton.Content = "Engelska";
+            echoGuide.Text = "echo: skriver meddelande till fil/konsol | ex. “echo meddelande” eller “echo meddelande > fil.txt” skapar fil och skriver texten i den";
+            moveGuide.Text = "move: flytta fil | ex. “move fil.txt mappNamn” eller “move fil.txt fil2.txt” för att flytta fil till en annan";
+            typeGuide.Text = "type: skapa eller läs fil | ex. “type nul > fil.txt” skapar en tom fil, “type fil.txt” läser filens innehåll";
+            copyGuide.Text = "copy: kopiera fil | ex. “copy fil.txt mappNamn”, eller “copy fil.txt fil2.txt” kopierar filen till en annan fil med namn fil2";
+            delGuide.Text = "del: ta bort fil | ex. “del fil.txt” (Obs: Borttagna filer kan ej återhämtas)";
+            mdGuide.Text = "md: make directory | ex. “md directoryName”";
+            cdGuide.Text = "cd: byt mapp | ex. “cd mappNamn”, “cd ..” för att flytta upp i en mapp, “cd /” för att flytta till root";
+            rdGuide.Text = "rd: ta bort mapp | ex. “rd mappNamn”";
+            dirGuide.Text = "dir: visa filer och mappar i nuvarande mapp | ex. “dir” eller “dir *.txt” för att visa alla filer med txt i nuvarande mapp";
+            treeGuide.Text = "tree: visa filstruktur under nuvarande mapp | ex. “tree” visar mappstruktur under nuvarande mapp, “tree /f” inkluderar även filer";
+        }
+        private void enButton_Click(object sender, RoutedEventArgs e)
+        {
+            languageGrid.Visibility = Visibility.Collapsed;
+            mainGrid.Visibility = Visibility.Visible;
+            language = "en";
+            echoButton.Content = "Write to File";
+            moveButton.Content = "Move";
+            typeButton.Content = "Create/Read File";
+            copyButton.Content = "Copy File";
+            delButton.Content = "Delete File";
+            mdButton.Content = "Create Directory";
+            cdButton.Content = "Change Directory";
+            dirButton.Content = "List Files";
+            treeButton.Content = "List Structure";
+            rdButton.Content = "Delete Directory";
+            cmdButton.Content = "Enter";
+            browseButton.Content = "Browse";
+            clearButton.Content = "Clear";
+            languageButton.Content = "Language";
+            helpButton.Content = "Help";
+            langTextBlock.Text = "Select language:";
+            seButton.Content = "Swedish";
+            enButton.Content = "English";
+            echoGuide.Text = "echo: write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message";
+            moveGuide.Text = "move: move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file";
+            typeGuide.Text = "type: create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file";
+            copyGuide.Text = "copy: copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file";
+            delGuide.Text = "del: delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)";
+            mdGuide.Text = "md: make directory | ex. “md directoryName”";
+            cdGuide.Text = "cd: change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory";
+            rdGuide.Text = "rd: remove directory | ex. “rd directoryName”";
+            dirGuide.Text = "dir: display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory";
+            treeGuide.Text = "tree: display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files";
+        }
+
+        private void languageButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainGrid.Visibility= Visibility.Collapsed;
+            languageGrid.Visibility= Visibility.Visible;
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button button = (Button)sender;
+
+            switch (button.Name)
+            {
+                case "echoButton":
+                    echoButton.Content = "echo";
+                    break;
+                case "moveButton":
+                    moveButton.Content = "move";
+                    break;
+                case "typeButton":
+                    typeButton.Content = "type";
+                    break;
+                case "copyButton":
+                    copyButton.Content = "copy";
+                    break;
+                case "delButton":
+                    delButton.Content = "del";
+                    break;
+                case "mdButton":
+                    mdButton.Content = "md";
+                    break;
+                case "cdButton":
+                    cdButton.Content = "cd";
+                    break;
+                case "dirButton":
+                    dirButton.Content = "dir";
+                    break;
+                case "treeButton":
+                    treeButton.Content = "tree";
+                    break;
+                case "rdButton":
+                    rdButton.Content = "rd";
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (language == "se")
+            {
+                switch (button.Name)
+                {
+                    case "echoButton":
+                        echoButton.Content = "Skriv till Fil";
+                        break;
+                    case "moveButton":
+                        moveButton.Content = "Flytta Fil";
+                        break;
+                    case "typeButton":
+                        typeButton.Content = "Skapa/Läs Fil";
+                        break;
+                    case "copyButton":
+                        copyButton.Content = "Kopiera Fil";
+                        break;
+                    case "delButton":
+                        delButton.Content = "Ta Bort Fil";
+                        break;
+                    case "mdButton":
+                        mdButton.Content = "Skapa Mapp";
+                        break;
+                    case "cdButton":
+                        cdButton.Content = "Byt Mapp";
+                        break;
+                    case "dirButton":
+                        dirButton.Content = "Visa Filer";
+                        break;
+                    case "treeButton":
+                        treeButton.Content = "Visa Filstruktur";
+                        break;
+                    case "rdButton":
+                        rdButton.Content = "Ta Bort Mapp";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (language == "en")
+            {
+                switch (button.Name)
+                {
+                    case "echoButton":
+                    echoButton.Content = "Write to File";
+                    break;
+                case "moveButton":
+                    moveButton.Content = "Move File";
+                    break;
+                case "typeButton":
+                    typeButton.Content = "Create/Read File";
+                    break;
+                case "copyButton":
+                    copyButton.Content = "Copy File";
+                    break;
+                case "delButton":
+                    delButton.Content = "Delete File";
+                    break;
+                case "mdButton":
+                    mdButton.Content = "Create Directory";
+                    break;
+                case "cdButton":
+                    cdButton.Content = "Change Directory";
+                    break;
+                case "dirButton":
+                    dirButton.Content = "List Files";
+                    break;
+                case "treeButton":
+                    treeButton.Content = "List Structure";
+                    break;
+                case "rdButton":
+                    rdButton.Content = "Delete Directory";
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+
+
     }
 }

@@ -286,14 +286,14 @@
         </Grid>
         <Grid Name="helpGrid" Margin="20" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
-                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
+                <ColumnDefinition Width="168" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

@@ -17,10 +17,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-//TODO: Buttons become very spaced out in larger windows, put them all in own size defined grid or stack?
-//TODO: Animate buttons so text changes smoothly?
+//TODO: Buttons get a bit far from input/output windows when resizing to larger windows, probably fixable change adding some vertical stackpanel and changing some margins, no time to fix. 
+//TODO: Animate buttons so text changes smoothly when hovering?
 //TODO: Error handling
-//TODO: Put placeholder text in input box
 
 namespace CMD_Project
 {

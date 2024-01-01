@@ -17,11 +17,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-//TODO: Buttons become very spaced out in larger windows, put them all in own size defined grid?
-//TODO: Order help guide alphabetically
+//TODO: Buttons become very spaced out in larger windows, put them all in own size defined grid or stack?
 //TODO: Animate buttons so text changes smoothly?
 //TODO: Error handling
-//TODO: Make help screen text more appealing?
+//TODO: Put placeholder text in input box
 
 namespace CMD_Project
 {
@@ -35,8 +34,10 @@ namespace CMD_Project
         }
         private void cmdButton_Click(object sender, RoutedEventArgs e)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Process oProcess = new Process();
             lineNumber = 0;
+            oProcess.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(850);
             oProcess.StartInfo.FileName = "cmd.exe";
             oProcess.StartInfo.RedirectStandardInput = true;
             oProcess.StartInfo.RedirectStandardOutput = true;
@@ -50,6 +51,13 @@ namespace CMD_Project
             oProcess.StandardInput.Close();
             oProcess.WaitForExit();
             outputBox.Text += oProcess.StandardOutput.ReadToEnd() + "\n----------------\n\n";
+        }
+        private void inputBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cmdButton_Click(sender, e);
+            }
         }
 
         private void browseButton_Click(object sender, RoutedEventArgs e)

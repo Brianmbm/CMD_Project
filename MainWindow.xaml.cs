@@ -156,6 +156,7 @@ namespace CMD_Project
             rdGuide.Text = "Ta bort mapp | ex. “rd mappNamn”.";
             dirGuide.Text = "Visa filer och mappar i nuvarande mapp | ex. “dir” eller “dir *.txt” för att visa alla filer med txt i nuvarande mapp.";
             treeGuide.Text = "Visa filstruktur under nuvarande mapp | ex. “tree” visar mappstruktur under nuvarande mapp, “tree /f” inkluderar även filer.";
+            placeholderText.Text = "Använd knapparna ovan eller skriv kommandot här";
         }
         private void enButton_Click(object sender, RoutedEventArgs e)
         {
@@ -190,6 +191,7 @@ namespace CMD_Project
             rdGuide.Text = "Remove directory | ex. “rd directoryName”.";
             dirGuide.Text = "Display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory.";
             treeGuide.Text = "Display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files.";
+            placeholderText.Text = "Use the buttons above or write command here";
         }
 
         private void languageButton_Click(object sender, RoutedEventArgs e)

@@ -265,7 +265,19 @@
                 <Button Name="helpButton" Content="Help" Style="{StaticResource Button1Style}" FontSize="28" Click="helpButton_Click"/>
             </StackPanel>
             
-            <TextBox Name="inputBox" TextWrapping="Wrap" Text="Input" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2" KeyDown="inputBox_KeyDown"/>
+            <TextBox Name="inputBox" TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2" KeyDown="inputBox_KeyDown"></TextBox>
+            <TextBlock Name="placeholderText" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" IsHitTestVisible="False" Text="Use the buttons above or write command here" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0" Foreground="DarkGray" FontSize="32">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=inputBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="#191818" CornerRadius="10" Padding="5" Margin="5">
                 <ScrollViewer>
                     <TextBlock Name="outputBox"  TextWrapping="Wrap"  Text=">"  FontSize="25" Background="#191818" Foreground="White" Padding="5" Margin="8" />

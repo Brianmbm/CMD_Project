@@ -20,15 +20,38 @@
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
             <Setter Property="Background" Value="#3C6E71"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+
+        </Style>
+        <Style x:Key="TextBlockStyle2" TargetType="TextBlock">
+            <Setter Property="Background" Value="#284B63"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
         </Style>
         <Style x:Key="BorderStyle" TargetType="Border">
-            <Setter Property="CornerRadius" Value="10"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="5"/>
+            <Setter Property="CornerRadius" Value="0,10,10,0"/>
+            <Setter Property="Margin" Value="0,1,1,1"/>
+            <Setter Property="Padding" Value="3"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="#3C6E71"/>
             <Setter Property="Background" Value="#3C6E71"/>
+            <Setter Property="Width" Value="590"/>
+        </Style>
+        <Style x:Key="BorderStyle2" TargetType="Border">
+            <Setter Property="CornerRadius" Value="10,0,0,10"/>
+            <Setter Property="Margin" Value="0,1,0,1"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#3C6E71"/>
+            <Setter Property="Background" Value="#3C6E71"/>
+            <Setter Property="Width" Value="80"/>
         </Style>
         <Style x:Key="Button1Style" TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -186,9 +209,6 @@
                     </StackPanel>
                 </Canvas>
             </Border>
-
-            
-
         </Grid>
         <Grid Name="mainGrid" Margin="20">
             <Grid.ColumnDefinitions>
@@ -259,39 +279,89 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="UltraBlack" Foreground="#353535" FontStyle="Italic">EasyCommand</TextBlock>
-            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="moveGuide" TextWrapping="Wrap"  Text="move: move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock Name="rdGuide" TextWrapping="Wrap"  Text="rd: remove directory | ex. “rd directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="delGuide" TextWrapping="Wrap"  Text="del: delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="echoGuide" TextWrapping="Wrap"  Text="echo: write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock Name="dirGuide" TextWrapping="Wrap"  Text="dir: display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="typeGuide" TextWrapping="Wrap"  Text="type: create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock Name="cdGuide" Text="cd: change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory" TextWrapping="Wrap"  Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}" >
-                <TextBlock Name="copyGuide" TextWrapping="Wrap"  Text="copy: copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="mdGuide" TextWrapping="Wrap"  Text="md: make directory | ex. “md directoryName”" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
-            <Border Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource BorderStyle}">
-                <TextBlock Name="treeGuide" TextWrapping="Wrap"  Text="tree: display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files" Style="{StaticResource TextBlockStyle}" Padding="1" Margin="2"></TextBlock>
-            </Border>
+            <StackPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="move:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="moveGuide" TextWrapping="Wrap"  Text="Move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="rd:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="rdGuide" TextWrapping="Wrap"  Text="Remove directory | ex. “rd directoryName”." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="del:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="delGuide" TextWrapping="Wrap"  Text="Delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="echo:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="echoGuide" TextWrapping="Wrap"  Text="Write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="dir:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="dirGuide" TextWrapping="Wrap"  Text="Display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="type:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="typeGuide" TextWrapping="Wrap"  Text="Create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="cd:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="cdGuide" Text="Change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory." TextWrapping="Wrap"  Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="copy:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="copyGuide" TextWrapping="Wrap"  Text="Copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="md:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="mdGuide" TextWrapping="Wrap"  Text="Make directory | ex. “md directoryName”." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="4"  Orientation="Horizontal">
+                <Border Style="{StaticResource BorderStyle2}" Background="#284B63">
+                    <TextBlock TextWrapping="Wrap"  Text="tree:" Style="{StaticResource TextBlockStyle2}"/>
+                </Border>
+                <Border Style="{StaticResource BorderStyle}">
+                    <TextBlock Name="treeGuide" TextWrapping="Wrap"  Text="Display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files." Style="{StaticResource TextBlockStyle}"></TextBlock>
+                </Border>
+            </StackPanel>
+
             <Button Name="backbutton" Content="Back" Grid.Row="8" Grid.Column="7" Style="{StaticResource Button1Style}" Click="backbutton_Click"/>
 
         </Grid>

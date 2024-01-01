@@ -138,16 +138,16 @@ namespace CMD_Project
             langTextBlock.Text = "Välj språk:";
             seButton.Content = "Svenska";
             enButton.Content = "Engelska";
-            echoGuide.Text = "echo: skriver meddelande till fil/konsol | ex. “echo meddelande” eller “echo meddelande > fil.txt” skapar fil och skriver texten i den";
-            moveGuide.Text = "move: flytta fil | ex. “move fil.txt mappNamn” eller “move fil.txt fil2.txt” för att flytta fil till en annan";
-            typeGuide.Text = "type: skapa eller läs fil | ex. “type nul > fil.txt” skapar en tom fil, “type fil.txt” läser filens innehåll";
-            copyGuide.Text = "copy: kopiera fil | ex. “copy fil.txt mappNamn”, eller “copy fil.txt fil2.txt” kopierar filen till en annan fil med namn fil2";
-            delGuide.Text = "del: ta bort fil | ex. “del fil.txt” (Obs: Borttagna filer kan ej återhämtas)";
-            mdGuide.Text = "md: make directory | ex. “md directoryName”";
-            cdGuide.Text = "cd: byt mapp | ex. “cd mappNamn”, “cd ..” för att flytta upp i en mapp, “cd /” för att flytta till root";
-            rdGuide.Text = "rd: ta bort mapp | ex. “rd mappNamn”";
-            dirGuide.Text = "dir: visa filer och mappar i nuvarande mapp | ex. “dir” eller “dir *.txt” för att visa alla filer med txt i nuvarande mapp";
-            treeGuide.Text = "tree: visa filstruktur under nuvarande mapp | ex. “tree” visar mappstruktur under nuvarande mapp, “tree /f” inkluderar även filer";
+            echoGuide.Text = "Skriver meddelande till fil/konsol | ex. “echo meddelande” eller “echo meddelande > fil.txt” skapar fil och skriver texten i den.";
+            moveGuide.Text = "Flytta fil | ex. “move fil.txt mappNamn” eller “move fil.txt fil2.txt” för att flytta fil till en annan.";
+            typeGuide.Text = "Skapa eller läs fil | ex. “type nul > fil.txt” skapar en tom fil, “type fil.txt” läser filens innehåll.";
+            copyGuide.Text = "Kopiera fil | ex. “copy fil.txt mappNamn”, eller “copy fil.txt fil2.txt” kopierar filen till en annan fil med namn fil2.";
+            delGuide.Text = "Ta bort fil | ex. “del fil.txt” (Obs: Borttagna filer kan ej återhämtas).";
+            mdGuide.Text = "Skapa mapp | ex. “md directoryName”.";
+            cdGuide.Text = "Byt mapp | ex. “cd mappNamn”, “cd ..” för att flytta upp i en mapp, “cd /” för att flytta till root.";
+            rdGuide.Text = "Ta bort mapp | ex. “rd mappNamn”.";
+            dirGuide.Text = "Visa filer och mappar i nuvarande mapp | ex. “dir” eller “dir *.txt” för att visa alla filer med txt i nuvarande mapp.";
+            treeGuide.Text = "Visa filstruktur under nuvarande mapp | ex. “tree” visar mappstruktur under nuvarande mapp, “tree /f” inkluderar även filer.";
         }
         private void enButton_Click(object sender, RoutedEventArgs e)
         {
@@ -172,16 +172,16 @@ namespace CMD_Project
             langTextBlock.Text = "Select language:";
             seButton.Content = "Swedish";
             enButton.Content = "English";
-            echoGuide.Text = "echo: write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message";
-            moveGuide.Text = "move: move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file";
-            typeGuide.Text = "type: create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file";
-            copyGuide.Text = "copy: copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file";
-            delGuide.Text = "del: delete file | ex. “del file.txt” (Attn: Removed files cannot be restored)";
-            mdGuide.Text = "md: make directory | ex. “md directoryName”";
-            cdGuide.Text = "cd: change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory";
-            rdGuide.Text = "rd: remove directory | ex. “rd directoryName”";
-            dirGuide.Text = "dir: display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory";
-            treeGuide.Text = "tree: display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files";
+            echoGuide.Text = "Write message to console/file | ex. “echo message”  or “echo message > file.txt” creates file and writes message.";
+            moveGuide.Text = "Move file | ex. “move file.txt directoryName” or “move file.txt file2.txt” to move to second file.";
+            typeGuide.Text = "Create or read file | ex. “type nul > file.txt” creates an empty file, “type fileName.txt” reads content of file.";
+            copyGuide.Text = "Copy file | ex. “copy file.txt directoryName”, or “copy file.txt file2.txt” copies file to a second file.";
+            delGuide.Text = "Delete file | ex. “del file.txt” (Attn: Removed files cannot be restored).";
+            mdGuide.Text = "Make directory | ex. “md directoryName”.";
+            cdGuide.Text = "Change directory | ex. “cd directoryName”, “cd ..” to go up one directory, “cd /” to go to root directory.";
+            rdGuide.Text = "Remove directory | ex. “rd directoryName”.";
+            dirGuide.Text = "Display files and folders in current directory | ex. “dir” or “dir *.txt” to show all files with “txt” in current directory.";
+            treeGuide.Text = "Display file structure | ex. “tree” shows the directory structure under the current directory, “tree /f” includes files.";
         }
 
         private void languageButton_Click(object sender, RoutedEventArgs e)

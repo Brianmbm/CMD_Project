@@ -234,24 +234,37 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" FontSize="50" TextAlignment="Center" FontWeight="UltraBlack" Foreground="#353535" FontStyle="Italic">EasyCommand</TextBlock>
-            <Button Name="echoButton" Grid.Row="1" Grid.Column="1" Padding="2" Click="Button_Click" Content="Write to File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="moveButton"  Grid.Row="1" Grid.Column="2" Padding="2" Click="Button_Click" Content="Move File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="typeButton" Grid.Row="1" Grid.Column="3" Padding="2" Click="Button_Click" Content="Create/Read File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="copyButton" Grid.Row="1" Grid.Column="4" Padding="2" Click="Button_Click" Content="Copy File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="delButton" Grid.Row="1" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete File" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="mdButton" Grid.Row="2" Grid.Column="1" Padding="2" Click="Button_Click" Content="Create Directory" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="cdButton" Grid.Row="2" Grid.Column="2" Padding="2" Click="Button_Click" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Content="Change Directory"/>
-            <Button Name="dirButton" Grid.Row="2" Grid.Column="3" Padding="2" Click="Button_Click" Content="List Files" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="treeButton" Grid.Row="2" Grid.Column="4" Padding="2" Click="Button_Click" Content="List Structure" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-            <Button Name="rdButton" Grid.Row="2" Grid.Column="5" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete Directory" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
-
-
-
-            <Button Name="cmdButton" Content="Enter" Click="cmdButton_Click" Grid.Row="3" Grid.Column="6" Style="{StaticResource Button4Style}" Background="#386641"/>
-            <Button Name="browseButton" Content="Browse" Grid.Row="4" Grid.Column="6" Style="{StaticResource Button1Style}" Click="browseButton_Click"/>
-            <Button Name="clearButton" Content="Clear" Grid.Row="5" Grid.Column="6" Style="{StaticResource Button1Style}" Click="clearButton_Click"/>
-            <Button Name="languageButton" Content="Language" Grid.Row="7" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28" Click="languageButton_Click"/>
-            <Button Name="helpButton" Content="Help" Grid.Row="8" Grid.Column="6" Style="{StaticResource Button1Style}" FontSize="28" Click="helpButton_Click"/>
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="168" />
+                    <ColumnDefinition Width="168" />
+                    <ColumnDefinition Width="168" />
+                    <ColumnDefinition Width="168" />
+                    <ColumnDefinition Width="168" />
+                </Grid.ColumnDefinitions>
+                <Button Name="echoButton" Grid.Row="0" Grid.Column="0" Padding="2" Click="Button_Click" Content="Write to File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="moveButton"  Grid.Row="0" Grid.Column="1" Padding="2" Click="Button_Click" Content="Move File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="typeButton" Grid.Row="0" Grid.Column="2" Padding="2" Click="Button_Click" Content="Create/Read File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="copyButton" Grid.Row="0" Grid.Column="3" Padding="2" Click="Button_Click" Content="Copy File" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="delButton" Grid.Row="0" Grid.Column="4" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete File" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="mdButton" Grid.Row="1" Grid.Column="0" Padding="2" Click="Button_Click" Content="Create Directory" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="cdButton" Grid.Row="1" Grid.Column="1" Padding="2" Click="Button_Click" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Content="Change Directory"/>
+                <Button Name="dirButton" Grid.Row="1" Grid.Column="2" Padding="2" Click="Button_Click" Content="List Files" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="treeButton" Grid.Row="1" Grid.Column="3" Padding="2" Click="Button_Click" Content="List Structure" Style="{StaticResource Button2Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Button Name="rdButton" Grid.Row="1" Grid.Column="4" Padding="2" Background="#8d0801" Click="Button_Click" Content="Delete Directory" Style="{StaticResource Button3Style}" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            </Grid>
+            <StackPanel Grid.Row="3" Grid.Column="6" Grid.RowSpan="6" Orientation="Vertical">
+                <Button Name="cmdButton" Content="Enter" Click="cmdButton_Click"  Style="{StaticResource Button4Style}" Background="#386641" Margin="0,5,0,2"/>
+                <Button Name="browseButton" Content="Browse" Style="{StaticResource Button1Style}" Click="browseButton_Click" Margin="0,10,0,10"/>
+                <Button Name="clearButton" Content="Clear"  Style="{StaticResource Button1Style}" Click="clearButton_Click" Margin="0,0,0,10"/>
+                <Button Name="languageButton" Content="Language"  Style="{StaticResource Button1Style}" FontSize="28" Click="languageButton_Click" Margin="0,60,0,10"/>
+                <Button Name="helpButton" Content="Help" Style="{StaticResource Button1Style}" FontSize="28" Click="helpButton_Click"/>
+            </StackPanel>
+            
             <TextBox Name="inputBox" TextWrapping="Wrap" Text="Input" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="5" FontSize="36" Style="{StaticResource TextBoxStyle}"  Padding="5" Margin="2" KeyDown="inputBox_KeyDown"/>
             <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="#191818" CornerRadius="10" Padding="5" Margin="5">
                 <ScrollViewer>
@@ -261,14 +274,14 @@
         </Grid>
         <Grid Name="helpGrid" Margin="20" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

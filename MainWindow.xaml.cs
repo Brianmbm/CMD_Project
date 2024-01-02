@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 //TODO: Buttons get a bit far from input/output windows when resizing to larger windows, probably fixable change adding some vertical stackpanel and changing some margins, no time to fix. 
 //TODO: Animate buttons so text changes smoothly when hovering?
@@ -61,10 +61,20 @@ namespace CMD_Project
 
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog oOpenFileDialog = new OpenFileDialog();
-            oOpenFileDialog.ShowDialog();
+            var folderPath = new CommonOpenFileDialog();
+            folderPath.Title = "Select a folder";
+            folderPath.IsFolderPicker = true;
+
+            if (folderPath.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var selectedFolder = folderPath.FileName;
+                inputBox.Text = $"cd \"{selectedFolder}\"";
+                cmdButton_Click(sender, e);
+                inputBox.Text = "";
+            }
         }
 
+  
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             outputBox.Text = ">";

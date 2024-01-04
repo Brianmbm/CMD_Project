@@ -21,6 +21,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 //TODO: Animate buttons so text changes smoothly when hovering?
 //TODO: Error handling
 
+
 namespace CMD_Project
 {
     public partial class MainWindow : Window
@@ -33,7 +34,21 @@ namespace CMD_Project
         }
         private void cmdButton_Click(object sender, RoutedEventArgs e)
         {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            if (inputBox.Text == "")
+            {
+                if (language == "en")
+                {
+                    outputBox.Text = "Oops, somethings is missing. Please enter a valid command in the box above.";
+                }
+                else
+                {
+                    outputBox.Text = "Hoppsan, något saknas. Vänligen skriv ett giltigt kommando i rutan ovan.";
+                }
+
+            }
+            else
+            {
+                            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Process oProcess = new Process();
             lineNumber = 0;
             oProcess.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(850);
@@ -49,7 +64,18 @@ namespace CMD_Project
             oProcess.StandardInput.Flush();
             oProcess.StandardInput.Close();
             oProcess.WaitForExit();
-            outputBox.Text += oProcess.StandardOutput.ReadToEnd() + "\n----------------\n\n";
+            string output = oProcess.StandardOutput.ReadToEnd();
+            string[] lines = output.Split('\n');
+            StringBuilder filteredOutput = new StringBuilder();
+
+            //To skip the all rights reserved/windows version lines
+            for (int i = 2; i < lines.Length; i++)
+            {
+                filteredOutput.AppendLine(lines[i]);
+            }
+            outputBox.Text += filteredOutput.ToString() + "----------------";
+        }
+
         }
         private void inputBox_KeyDown(object sender, KeyEventArgs e)
         {

@@ -65,15 +65,18 @@ namespace CMD_Project
             oProcess.StandardInput.Close();
             oProcess.WaitForExit();
             string output = oProcess.StandardOutput.ReadToEnd();
+
+            //Skip the windows version lines and omit empty space lines
             string[] lines = output.Split('\n');
             StringBuilder filteredOutput = new StringBuilder();
-
-            //To skip the all rights reserved/windows version lines
-            for (int i = 2; i < lines.Length; i++)
+            for (int i = 3; i < lines.Length; i++)
             {
-                filteredOutput.AppendLine(lines[i]);
+                if (!string.IsNullOrWhiteSpace(lines[i]))
+                {
+                    filteredOutput.AppendLine(lines[i]);
+                }
             }
-            outputBox.Text += filteredOutput.ToString() + "----------------";
+            outputBox.Text += filteredOutput.ToString() + "----------------\n";
         }
 
         }
